@@ -2,25 +2,308 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Myyou テストページ</title>
+  <title>MY YOU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Interフォント読み込み（Thin・Medium・SemiBold） -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: sans-serif;
-      background-color: #f7f7f7;
-      text-align: center;
-      margin-top: 100px;
-    }
-    h1 {
-      color: #0078d4;
-    }
-    p {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       color: #333;
+      background: #fafafa;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #b5b5b5;
+      padding: 16px 160px;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-menu li a {
+      text-decoration: none;
+      color: #888;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-menu li a:hover {
+      color: #000;
+    }
+
+    .hero {
+      background: #1f1f1f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      max-width: 1200px;
+    }
+
+    .hero-logo {
+      width: 265px;
+      height: 257px;
+      object-fit: contain;
+    }
+
+    .hero-text {
+      text-align: left;
+    }
+
+    .hero-text h1 {
+      font-weight: 600;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p.main {
+      font-weight: 100;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p.sub {
+      font-weight: 500;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 24px;
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .left-column {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 24px;
+    }
+
+    .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .product-card {
+      padding: 24px;
+      border: 1px solid #ccc;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card.dark {
+      background: #1f1f1f;
+      color: white;
+    }
+
+    .product-card.dark .btn {
+      color: white;
+      border-color: white;
+    }
+
+    .product-card.gray {
+      background: #eee;
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      margin: 16px 0 8px;
+      line-height: 1.4;
+    }
+
+    .product-card p {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #333;
+      color: #333;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #eee;
+      padding: 24px;
+    }
+
+    .site-footer {
+      background: #1f1f1f;
+      color: white;
+      padding: 60px 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .footer-info a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-links h4 {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      font-size: 0.85rem;
+      margin-bottom: 4px;
     }
   </style>
 </head>
 <body>
-  <h1>Myyou.jp テストページ</h1>
-  <p>Render 経由で公開するテスト用のHTMLページです。</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="images/logo1.png" alt="MY YOU ロゴ">
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <img src="images/logo2.png" alt="MY YOU ロゴ" class="hero-logo">
+      <div class="hero-text">
+        <h1>マイユウ</h1>
+        <p class="main">人とつながる場所に、新しい価値が生まれる。</p>
+        <p class="sub">Where people connect, new value begins.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="products">
+    <div class="left-column">
+      <div class="product-card">
+        <img src="product1.jpg" alt="空間演出">
+        <h3>空間演出<br>映像ソリューション</h3>
+        <p>We provide comprehensive solutions...</p>
+        <a href="#" class="btn">さらに詳しく</a>
+      </div>
+      <div class="bottom-row">
+        <div class="product-card">
+          <img src="product2.jpg" alt="システム開発">
+          <h3>システム開発</h3>
+          <p>End-to-end system development...</p>
+          <a href="#" class="btn">さらに詳しく</a>
+        </div>
+        <div class="product-card dark">
+          <img src="product3.jpg" alt="AI DX">
+          <h3>AI DX 支援</h3>
+          <p>We guide businesses in leveraging AI...</p>
+          <a href="#" class="btn">さらに詳しく</a>
+        </div>
+      </div>
+    </div>
+    <div class="right-column">
+      <h3>WEB App<br>iOS App</h3>
+      <p>We develop Web and iOS apps focused on essentials...</p>
+      <a href="#" class="btn">さらに詳しく</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">MY YOU</div>
+      <div class="footer-info">
+        <p>
+          合同会社マイユウ<br>
+          〒813-0034<br>
+          福岡県福岡市東区多の津4丁目4-12 多の津ビル603<br>
+          <a href="https://www.myyou.jp">https://www.myyou.jp</a>
+        </p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>ABOUT</h4>
+          <ul>
+            <li>設立 令和7年6月</li>
+            <li>代表社員 堀田 暁</li>
+            <li>映像演出 映像制作 ソフトウェア開発</li>
+            <li>システム開発</li>
+            <li>AI DX支援</li>
+          </ul>
+        </div>
+        <div>
+          <h4>SUPPORT</h4>
+          <ul>
+            <li>プライバシーポリシー</li>
+            <li>お問い合わせ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
