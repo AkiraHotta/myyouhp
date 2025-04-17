@@ -104,73 +104,110 @@
     }
 
     .products {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 0;
       max-width: 1400px;
       margin: 0 auto;
       padding: 0;
     }
 
-    .left-column {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 0;
+    .product-wrapper {
+      display: flex;
     }
 
-    .bottom-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    .product-card {
-      border: none;
-      padding: 0;
-      margin: 0;
+    .product-left-column {
+      width: 60%;
       display: flex;
       flex-direction: column;
     }
 
-    .product-card.horizontal {
-      flex-direction: row;
+    .product-right-column {
+      width: 40%;
+      background: #eee;
+      display: flex;
       align-items: center;
+      justify-content: center;
     }
 
-    .product-card img.system-image {
-      width: 100%;
-      max-width: 382px;
-      height: auto;
+    .product-space {
+  display: flex;
+  height: 328px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-space .product-left {
+  padding: 0;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.product-space .product-left img {
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 218px;
+  height: 389px;
+  object-fit: cover;
+  object-position: top left;
+}
+
+.product-space .product-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+    .product-system-ai {
+      display: flex;
+      height: 272px;
     }
 
-    .product-card img.ai-image {
-      width: 100%;
-      max-width: 382px;
-      height: auto;
+    .product-app {
+      display: flex;
+      height: 600px;
+      max-width: 720px;
+      padding: 48px;
+      gap: 48px;
     }
 
-    .product-card img.macbook-image {
-      width: 100%;
-      max-width: 600px;
-      height: auto;
-      margin-bottom: 24px;
+    .product-left, .product-right {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .product-image {
-      width: 218.57px;
-      height: 389px;
-      flex-shrink: 0;
+    .product-left img, .product-right img {
+      height: 100%;
+      width: auto;
     }
 
     .product-content {
-      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .product-title {
-      font-size: 36px;
+      font-size: 28px;
       font-weight: 500;
       margin-bottom: 16px;
       line-height: 1.4;
+      color: #000000;
+    }
+
+    .product-title.app {
+      font-weight: 100;
+      font-size: 64px;
+      color: #000;
     }
 
     .product-desc {
@@ -178,6 +215,12 @@
       color: #909090;
       margin-bottom: 24px;
       line-height: 1.6;
+    }
+
+    .product-desc.app {
+      font-weight: 500;
+      font-size: 16px;
+      color: #909090;
     }
 
     .btn.btn-detail {
@@ -193,23 +236,14 @@
       font-size: 16px;
     }
 
-    .product-card.dark {
+    .dark {
       background: #1f1f1f;
       color: white;
     }
 
-    .product-card.dark .btn {
+    .dark .btn {
       color: white;
       border-color: white;
-    }
-
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #eee;
-      padding: 24px;
     }
 
     .site-footer {
@@ -281,35 +315,47 @@
   </section>
 
   <section class="products">
-    <div class="left-column">
-      <div class="product-card horizontal">
-        <img src="images/IMG_9188.jpg" alt="空間演出" class="product-image">
-        <div class="product-content">
-          <h3 class="product-title">空間演出<br>映像ソリューション</h3>
-          <p class="product-desc">We provide comprehensive solutions for spatial design and visual production — from LED and projector installation to immersive content creation.</p>
-          <a href="#" class="btn btn-detail">さらに詳しく</a>
+    <div class="product-wrapper">
+      <div class="product-left-column">
+        <div class="product-space">
+          <div class="product-left">
+            <img src="images/IMG_9188.jpg" alt="空間演出">
+          </div>
+          <div class="product-right">
+            <div class="product-content">
+              <h3 class="product-title">空間演出<br>映像ソリューション</h3>
+              <p class="product-desc">We provide comprehensive solutions for spatial design and visual production — from LED and projector installation to immersive content creation.</p>
+              <a href="#" class="btn btn-detail">さらに詳しく</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-system-ai">
+          <div class="product-left">
+            <img src="images/rp.png" alt="システム開発">
+            <h3 class="product-title">システム開発</h3>
+            <p class="product-desc">End-to-end system development...</p>
+            <a href="#" class="btn btn-detail">さらに詳しく</a>
+          </div>
+          <div class="product-left dark">
+            <img src="images/IMG_1.png" alt="AI DX 支援">
+            <h3 class="product-title">AI DX 支援</h3>
+            <p class="product-desc">We guide businesses in leveraging AI...</p>
+            <a href="#" class="btn btn-detail">さらに詳しく</a>
+          </div>
         </div>
       </div>
-      <div class="bottom-row">
-        <div class="product-card">
-          <img src="images/rp.png" alt="システム開発" class="system-image">
-          <h3>システム開発</h3>
-          <p>End-to-end system development...</p>
-          <a href="#" class="btn">さらに詳しく</a>
-        </div>
-        <div class="product-card dark">
-          <img src="images/IMG_1.png" alt="AI DX" class="ai-image">
-          <h3>AI DX 支援</h3>
-          <p>We guide businesses in leveraging AI...</p>
-          <a href="#" class="btn">さらに詳しく</a>
+      <div class="product-right-column">
+        <div class="product-app">
+          <div class="product-content">
+            <h3 class="product-title app">WEB App<br>iOS App</h3>
+            <p class="product-desc app">We develop Web and iOS apps focused on essentials — no unnecessary features, just what fits your business.</p>
+            <a href="#" class="btn btn-detail">さらに詳しく</a>
+          </div>
+          <div class="product-right">
+            <img src="images/IMG_14.png" alt="MacBook">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="right-column">
-      <img src="images/IMG_14.png" alt="MacBook" class="macbook-image">
-      <h3>WEB App<br>iOS App</h3>
-      <p>We develop Web and iOS apps focused on essentials...</p>
-      <a href="#" class="btn">さらに詳しく</a>
     </div>
   </section>
 
