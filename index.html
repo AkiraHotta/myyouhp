@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <title>MY YOU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Interフォント読み込み（Thin・Medium・SemiBold） -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <style>
     * {
       box-sizing: border-box;
@@ -22,8 +20,8 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      object-fit: cover;
     }
 
     .site-header {
@@ -40,6 +38,7 @@
 
     .logo img {
       height: 40px;
+      width: auto;
     }
 
     .nav-menu {
@@ -107,30 +106,91 @@
     .products {
       display: grid;
       grid-template-columns: 2fr 3fr;
-      gap: 24px;
+      gap: 0;
       max-width: 1400px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 0;
     }
 
     .left-column {
       display: grid;
       grid-template-rows: auto 1fr;
-      gap: 24px;
+      gap: 0;
     }
 
     .bottom-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 0;
     }
 
     .product-card {
-      padding: 24px;
-      border: 1px solid #ccc;
-      background: #fff;
+      border: none;
+      padding: 0;
+      margin: 0;
       display: flex;
       flex-direction: column;
+    }
+
+    .product-card.horizontal {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .product-card img.system-image {
+      width: 100%;
+      max-width: 382px;
+      height: auto;
+    }
+
+    .product-card img.ai-image {
+      width: 100%;
+      max-width: 382px;
+      height: auto;
+    }
+
+    .product-card img.macbook-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin-bottom: 24px;
+    }
+
+    .product-image {
+      width: 218.57px;
+      height: 389px;
+      flex-shrink: 0;
+    }
+
+    .product-content {
+      padding: 24px;
+    }
+
+    .product-title {
+      font-size: 36px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: #909090;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .btn.btn-detail {
+      display: inline-block;
+      width: 208px;
+      height: 56px;
+      line-height: 56px;
+      text-align: center;
+      border: 1px solid #000;
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
     }
 
     .product-card.dark {
@@ -143,33 +203,10 @@
       border-color: white;
     }
 
-    .product-card.gray {
-      background: #eee;
-    }
-
-    .product-card h3 {
-      font-size: 1.1rem;
-      margin: 16px 0 8px;
-      line-height: 1.4;
-    }
-
-    .product-card p {
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border: 1px solid #333;
-      color: #333;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-
     .right-column {
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
       background: #eee;
       padding: 24px;
@@ -245,21 +282,23 @@
 
   <section class="products">
     <div class="left-column">
-      <div class="product-card">
-        <img src="product1.jpg" alt="空間演出">
-        <h3>空間演出<br>映像ソリューション</h3>
-        <p>We provide comprehensive solutions...</p>
-        <a href="#" class="btn">さらに詳しく</a>
+      <div class="product-card horizontal">
+        <img src="images/IMG_9188.jpg" alt="空間演出" class="product-image">
+        <div class="product-content">
+          <h3 class="product-title">空間演出<br>映像ソリューション</h3>
+          <p class="product-desc">We provide comprehensive solutions for spatial design and visual production — from LED and projector installation to immersive content creation.</p>
+          <a href="#" class="btn btn-detail">さらに詳しく</a>
+        </div>
       </div>
       <div class="bottom-row">
         <div class="product-card">
-          <img src="product2.jpg" alt="システム開発">
+          <img src="images/rp.png" alt="システム開発" class="system-image">
           <h3>システム開発</h3>
           <p>End-to-end system development...</p>
           <a href="#" class="btn">さらに詳しく</a>
         </div>
         <div class="product-card dark">
-          <img src="product3.jpg" alt="AI DX">
+          <img src="images/IMG_1.png" alt="AI DX" class="ai-image">
           <h3>AI DX 支援</h3>
           <p>We guide businesses in leveraging AI...</p>
           <a href="#" class="btn">さらに詳しく</a>
@@ -267,6 +306,7 @@
       </div>
     </div>
     <div class="right-column">
+      <img src="images/IMG_14.png" alt="MacBook" class="macbook-image">
       <h3>WEB App<br>iOS App</h3>
       <p>We develop Web and iOS apps focused on essentials...</p>
       <a href="#" class="btn">さらに詳しく</a>
@@ -277,12 +317,7 @@
     <div class="footer-content">
       <div class="footer-logo">MY YOU</div>
       <div class="footer-info">
-        <p>
-          合同会社マイユウ<br>
-          〒813-0034<br>
-          福岡県福岡市東区多の津4丁目4-12 多の津ビル603<br>
-          <a href="https://www.myyou.jp">https://www.myyou.jp</a>
-        </p>
+        <p>合同会社マイユウ<br>〒813-0034<br>福岡県福岡市東区多の津4丁目4-12 多の津ビル603<br><a href="https://www.myyou.jp">https://www.myyou.jp</a></p>
       </div>
       <div class="footer-links">
         <div>
