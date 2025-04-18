@@ -19,6 +19,7 @@
       line-height: 1.6;
       max-width: 1440px;
       margin: 0 auto;
+      
     }
 
     img {
@@ -106,19 +107,22 @@
     }
 
     .products {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 0;
     }
 
     .product-wrapper {
       display: flex;
+      width: 100%; /* wrapperをレスポンシブに調整 */
     }
 
     .product-left-column {
       width: 50%;
       display: flex;
       flex-direction: column;
+      height: 600px; /* ← Appと揃える */
+      
     }
 
     .product-right-column {
@@ -131,56 +135,167 @@
     }
 
     .product-space {
-      display: flex;
-      height: 328px;
-      max-width: 720px;
-      width: 100%;
-      margin: 0 auto;
-    }
+  display: flex;
+  
+  height: 328px;
+  overflow: hidden;
+  width: 100%; /* 固定幅から100%に変更し、PCウィンドウ幅に応じて変動 */
+  max-width: 720px; /* 必要に応じて最大幅は指定可 */
+}
 
-    .product-space .product-left {
-      padding: 0;
-      width: 50%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      overflow: hidden;
-    }
 
-    .product-space .product-left img {
-      margin: 0;
-      padding: 0;
-      display: block;
-      width: 218px;
-      height: 389px;
-      object-fit: cover;
-      object-position: top left;
-    }
 
-    .product-space .product-right {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+.product-space .product-left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;  /* ← 中央→上端に変更 */
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-left: 0;
+  padding-top: 0;
+}
 
-    .product-space .product-right .product-content {
+.product-space .product-left img {
+  height: 328px;
+  width: auto;                /* 縦横比を維持 */
+  object-fit: contain;        /* 全体表示（トリミングなし） */
+  object-position: left;      /* 左寄せで表示 */
+  margin-left: 0px;             /* 383 × 0.2 = 約76.6px → 左の余白を補正 */
+}
+
+.product-space .product-right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+.product-space .product-right .product-content {
+  
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -80px; /* ← 左に"はみ出させる" */
+  width: 120%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  align-items: flex-start;
+  text-align: left;
+}
+
+    .product-system-ai {
+  display: flex;
+  flex-wrap: nowrap; /* 改行せず横に並べ続ける */
+  
+  width: 100%; /* 固定幅から100%に変更し、PCウィンドウ幅に応じて変動 */
+  max-width: 720px; /* 必要に応じて最大幅は指定可 */
+  height: 272px;
+}
+
+/*プロダクトシステム*/
+
+.product-system,
+.product-ai {
+  flex: 1; /* 空間を均等に分割 */
+  min-width: 0; /* flexの縮小が可能になるように指定 */
+
+  width: 100%; /* 固定幅から100%に変更し、PCウィンドウ幅に応じて変動 */
+  max-width: 360px; /* 必要に応じて最大幅は指定可 */
+  height: 272px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  
+}
+
+    .product-ai {
+      background-color: #353535; /* AI DX支援 */
+    }
+    .product-box {
+  display: flex;
+  flex-direction: row; /* ← 画像と文字を横並びに */
+  align-items: center;
+  width: 100%; /* 横幅いっぱいに調整 */
+}
+
+  
+
+.product-box img {
+  width: 100px;             /* ← 表示する幅を変更（広げる or 狭める） */
+  height: 249px;            /* ← 高さは通常固定でOK */
+  object-fit: none;         /* ← トリミング前提なので none 固定 */
+  object-position: right;   /* ← トリミング位置を調整する */
+  transform: scale(0.8);           /* 縮小 */
+  transform-origin: left center;  /* 左端を基準に縮小 */
+  margin-left: 0px;             /* 383 × 0.2 = 約76.6px → 左の余白を補正 */
+  
+}
+
+    .product-text {
+      width: 100%;  /* 親要素の幅いっぱいまで使う */
+  max-width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 300px;
-      width: 100%;
-      word-break: break-word;
-      overflow-wrap: break-word;
-      align-items: center;
-      text-align: left;
+      color: #000000;
+      font-family: 'Inter', sans-serif;
     }
 
-    .product-system-ai {
-      display: flex;
-      height: 272px;
+    .product-ai .product-text {
+      color: #ffffff;
     }
+
+    .product-text h3 {
+      font-size: 29px;
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 12px;
+       /* ↓ 追加部分 ↓ */
+      max-width: 100%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .product-text p {
+      font-size: 14px;
+      color: #909090;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 16px;
+     
+    }
+
+    .product-ai .product-text p {
+      color: #cccccc;
+      
+    }
+
+    .product-text .btn {
+      width: 160px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .product-system .product-text .btn {
+      border-color: #000;
+      color: #000;
+    }
+
+/*プロダクトApp*/
 
     .product-app {
       display: flex;
@@ -209,6 +324,19 @@
       margin-left: auto;
       margin-right: 0;
     }
+
+    .product-app .product-right img {
+  width: 250px;
+  height: 500px;
+  object-fit: none;
+  object-position: left;
+  transform: scale(1);
+  transform-origin: left center;
+  margin-right: -30px;
+}
+
+
+
 
     .image-wrapper {
       margin-left: auto;
@@ -264,6 +392,8 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 15px;
+      align-self: center;
+
     }
 
     .dark {
@@ -283,13 +413,44 @@
     }
 
     .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 40px;
-    }
+      font-family: 'Inter', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+  text-align: left;
+}
+.footer-info,
+.footer-links h4,
+.footer-links li,
+.footer-info a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #cfcfcf;
+}
+
+.footer-content > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-content > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.footer-content > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
     .footer-logo {
       font-size: 1.2rem;
@@ -315,8 +476,127 @@
       margin-bottom: 4px;
     }
 
+    .product-text .btn,
+.product-content .btn {
+  align-self: center;
+}
 
+.product-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.site-footer img {
+  width: 50%;        /* ← 任意の縮小率（例：20%） */
+  height: auto;      /* 高さは自動調整 */
+  object-fit: contain; /* 画像の全体を収める（デフォルトでも切れません） */
+  margin-bottom: 24px; /* 下のテキストと距離を取る */
+}
+.product-system {
+  background-color: #ededed; /* .product-aiと同じ */
+}
 
+.product-text,
+.product-content,
+.product-text h3,
+.product-text p {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .hero-text p.main {
+    font-size: 20px;
+  }
+
+  .hero-text p.sub {
+    font-size: 14px;
+  }
+
+  .product-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .product-left-column,
+  .product-right-column {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-space,
+  .product-system-ai,
+  .product-app {
+    flex-direction: column;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .product-system,
+  .product-ai {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-box img {
+    width: 100%;
+    height: auto;
+    transform: none;
+    margin-bottom: 16px;
+  }
+
+  .product-text h3 {
+    font-size: 22px;
+  }
+
+  .product-text p {
+    font-size: 13px;
+  }
+
+  .product-app {
+    padding: 24px 16px;
+  }
+
+  .product-app .product-right img {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .site-header {
+    padding: 16px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
   </style>
 </head>
 <body>
@@ -365,17 +645,25 @@
           </div>
         </div>
         <div class="product-system-ai">
-          <div class="product-left">
-            <img src="images/rp.png" alt="システム開発">
-            <h3 class="product-title">システム開発</h3>
-            <p class="product-desc">End-to-end system development...</p>
-            <a href="#" class="btn btn-detail">さらに詳しく</a>
+          <div class="product-system">
+            <div class="product-box">
+              <img src="images/rp.png" alt="システム開発">
+              <div class="product-text">
+                <h3>システム開発</h3>
+                <p>End-to-end system development — from hardware design to software.</p>
+                <a href="#" class="btn">さらに詳しく</a>
+              </div>
+            </div>
           </div>
-          <div class="product-left dark">
-            <img src="images/IMG_1.png" alt="AI DX 支援">
-            <h3 class="product-title">AI DX 支援</h3>
-            <p class="product-desc">We guide businesses in leveraging AI...</p>
-            <a href="#" class="btn btn-detail">さらに詳しく</a>
+          <div class="product-ai">
+            <div class="product-box">
+              <img src="images/IMG_1.png" alt="AI DX 支援">
+              <div class="product-text">
+                <h3>AI DX 支援</h3>
+                <p>We guide businesses in leveraging AI — from concept to implementation.</p>
+                <a href="#" class="btn">さらに詳しく</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -398,30 +686,31 @@
 
   <footer class="site-footer">
     <div class="footer-content">
-      <div class="footer-logo">MY YOU</div>
-      <div class="footer-info">
-        <p>合同会社マイユウ<br>〒813-0034<br>福岡県福岡市東区多の津4丁目4-12 多の津ビル603<br><a href="https://www.myyou.jp">https://www.myyou.jp</a></p>
+      <div>
+        <img src="images/logo1.png" alt="MY YOU">
+        <div class="footer-info">
+          <p>合同会社マイユウ<br>〒813-0034<br>福岡県福岡市東区多の津4丁目4-12 多の津ビル603<br><a href="https://www.myyou.jp">https://www.myyou.jp</a></p>
+        </div>
       </div>
       <div class="footer-links">
-        <div>
-          <h4>ABOUT</h4>
-          <ul>
-            <li>設立 令和7年6月</li>
-            <li>代表社員 堀田 暁</li>
-            <li>映像演出 映像制作 ソフトウェア開発</li>
-            <li>システム開発</li>
-            <li>AI DX支援</li>
-          </ul>
-        </div>
-        <div>
-          <h4>SUPPORT</h4>
-          <ul>
-            <li>プライバシーポリシー</li>
-            <li>お問い合わせ</li>
-          </ul>
-        </div>
+        <h4>ABOUT</h4>
+        <ul>
+          <li>設立 令和7年6月</li>
+          <li>代表社員 堀田 暁</li>
+          <li>映像演出 映像制作 ソフトウェア開発</li>
+          <li>システム開発</li>
+          <li>AI DX支援</li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>SUPPORT</h4>
+        <ul>
+          <li>プライバシーポリシー</li>
+          <li>お問い合わせ</li>
+        </ul>
       </div>
     </div>
   </footer>
 </body>
 </html>
+
