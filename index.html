@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap" rel="stylesheet">
   <style>
-      * {
+    /* リセット */
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    /* 基本スタイル */
     body {
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       color: #333;
@@ -19,37 +20,31 @@
       line-height: 1.6;
       max-width: 1440px;
       margin: 0 auto;
-      
     }
-
     img {
       display: block;
       object-fit: cover;
     }
-
+    /* ヘッダー */
     .site-header {
       background: #fff;
       border-bottom: 1px solid #b5b5b5;
       padding: 16px 160px;
     }
-
     .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     .logo img {
       height: 40px;
       width: auto;
     }
-
     .nav-menu {
       list-style: none;
       display: flex;
       gap: 32px;
     }
-
     .nav-menu li a {
       text-decoration: none;
       color: #888;
@@ -57,11 +52,10 @@
       font-weight: 500;
       transition: color 0.3s;
     }
-
     .nav-menu li a:hover {
       color: #000;
     }
-
+    /* ヒーローセクション */
     .hero {
       background: #1f1f1f;
       color: white;
@@ -70,61 +64,51 @@
       align-items: center;
       padding: 100px 20px;
     }
-
     .hero-content {
       display: flex;
       align-items: center;
       gap: 48px;
       max-width: 1200px;
     }
-
     .hero-logo {
       width: 265px;
       height: 257px;
       object-fit: contain;
     }
-
     .hero-text {
       text-align: left;
     }
-
     .hero-text h1 {
       font-weight: 600;
       font-size: 25px;
       margin-bottom: 10px;
     }
-
     .hero-text p.main {
       font-weight: 100;
       font-size: 32px;
       margin-bottom: 10px;
     }
-
     .hero-text p.sub {
       font-weight: 500;
       font-size: 18px;
       color: #ccc;
     }
-
+    /* プロダクト一覧 */
     .products {
       max-width: 1440px;
       margin: 0 auto;
       padding: 0;
     }
-
     .product-wrapper {
       display: flex;
-      width: 100%; /* wrapperをレスポンシブに調整 */
+      width: 100%;
     }
-
     .product-left-column {
       width: 50%;
       display: flex;
       flex-direction: column;
-      height: 600px; /* ← Appと揃える */
-      
+      height: 600px;
     }
-
     .product-right-column {
       width: 50%;
       background: #eee;
@@ -133,181 +117,135 @@
       justify-content: flex-end;
       padding: 0;
     }
-
+    /* 空間演出 */
     .product-space {
-  display: flex;
-  
-  height: 328px;
-  overflow: hidden;
-  width: 100%; /* 固定幅から100%に変更し、PCウィンドウ幅に応じて変動 */
-  max-width: 720px; /* 必要に応じて最大幅は指定可 */
-}
-
-
-
-.product-space .product-left {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;  /* ← 中央→上端に変更 */
-  justify-content: flex-start;
-  overflow: hidden;
-  padding-left: 0;
-  padding-top: 0;
-}
-
-.product-space .product-left img {
-  height: 328px;
-  width: auto;                /* 縦横比を維持 */
-  object-fit: contain;        /* 全体表示（トリミングなし） */
-  object-position: left;      /* 左寄せで表示 */
-  margin-left: 0px;             /* 383 × 0.2 = 約76.6px → 左の余白を補正 */
-}
-
-.product-space .product-right {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: flex-start;
-  padding-left: 24px;
-}
-
-.product-space .product-right .product-content {
-  
-  margin-left: auto;
-  margin-right: auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: -80px; /* ← 左に"はみ出させる" */
-  width: 120%;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  align-items: flex-start;
-  text-align: left;
-}
-
-    .product-system-ai {
-  display: flex;
-  flex-wrap: nowrap; /* 改行せず横に並べ続ける */
-  
-  width: 100%; /* 固定幅から100%に変更し、PCウィンドウ幅に応じて変動 */
-  max-width: 720px; /* 必要に応じて最大幅は指定可 */
-  height: 272px;
-}
-
-/*プロダクトシステム*/
-
-.product-system,
-.product-ai {
-  flex: 1; /* 空間を均等に分割 */
-  min-width: 0; /* flexの縮小が可能になるように指定 */
-
-  width: 100%; /* 固定幅から100%に変更し、PCウィンドウ幅に応じて変動 */
-  max-width: 360px; /* 必要に応じて最大幅は指定可 */
-  height: 272px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0;
-  
-}
-
-    .product-ai {
-      background-color: #353535; /* AI DX支援 */
+      display: flex;
+      height: 328px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 720px;
     }
-    .product-box {
-  display: flex;
-  flex-direction: row; /* ← 画像と文字を横並びに */
-  align-items: center;
-  width: 100%; /* 横幅いっぱいに調整 */
-}
-
-  
-
-.product-box img {
-  width: 100px;             /* ← 表示する幅を変更（広げる or 狭める） */
-  height: 249px;            /* ← 高さは通常固定でOK */
-  object-fit: none;         /* ← トリミング前提なので none 固定 */
-  object-position: right;   /* ← トリミング位置を調整する */
-  transform: scale(0.8);           /* 縮小 */
-  transform-origin: left center;  /* 左端を基準に縮小 */
-  margin-left: 0px;             /* 383 × 0.2 = 約76.6px → 左の余白を補正 */
-  
-}
-
-    .product-text {
-      width: 100%;  /* 親要素の幅いっぱいまで使う */
-  max-width: 100%;
+    .product-space .product-left {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+    .product-space .product-left img {
+      height: 328px;
+      width: auto;
+      object-fit: contain;
+      object-position: left;
+      margin-left: 0;
+    }
+    .product-space .product-right {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 24px;
+    }
+    .product-space .product-right .product-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      color: #000000;
+      margin-left: -80px;
+      width: 120%;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      align-items: flex-start;
+      text-align: left;
+    }
+    /* システム開発／AI DX支援 */
+    .product-system-ai {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      max-width: 720px;
+      height: 272px;
+    }
+    .product-system,
+    .product-ai {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      max-width: 360px;
+      height: 272px;
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+    .product-system {
+      background-color: #ededed;
+    }
+    .product-ai {
+      background-color: #353535;
+    }
+    .product-box {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .product-box img {
+      width: 100px;
+      height: 249px;
+      object-fit: none;
+      object-position: right;
+      transform: scale(0.8);
+      transform-origin: left center;
+      margin-left: 0;
+    }
+    .product-text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       font-family: 'Inter', sans-serif;
     }
-
-    .product-ai .product-text {
-      color: #ffffff;
-    }
-
     .product-text h3 {
       font-size: 29px;
       font-weight: 300;
-      font-family: 'Inter', sans-serif;
       margin-bottom: 12px;
-       /* ↓ 追加部分 ↓ */
-      max-width: 100%;
       word-break: break-word;
       overflow-wrap: break-word;
     }
-
     .product-text p {
       font-size: 14px;
-      color: #909090;
       font-weight: 500;
-      font-family: 'Inter', sans-serif;
       margin-bottom: 16px;
-     
+      color: #909090;
     }
-
     .product-ai .product-text p {
       color: #cccccc;
-      
     }
-
     .product-text .btn {
       width: 160px;
       height: 48px;
       line-height: 48px;
       text-align: center;
-      border: 1px solid #fff;
-      color: #fff;
       text-decoration: none;
       font-weight: 500;
       font-size: 15px;
+      border: 1px solid #fff;
+      color: #fff;
     }
-
     .product-system .product-text .btn {
       border-color: #000;
       color: #000;
     }
-
-/*プロダクトApp*/
-
+    /* App 開発 */
     .product-app {
       display: flex;
       height: 600px;
       max-width: 720px;
       width: 100%;
       padding: 48px 0 48px 48px;
-      gap: 0;
-      overflow: hidden;
       justify-content: space-between;
+      overflow: hidden;
     }
-
     .product-left, .product-right {
       flex: 1;
       padding: 24px;
@@ -315,74 +253,49 @@
       flex-direction: column;
       justify-content: center;
     }
-
     .product-left img, .product-right img {
       height: 500px;
       width: auto;
-      display: block;
       object-fit: cover;
       margin-left: auto;
       margin-right: 0;
     }
-
     .product-app .product-right img {
-  width: 250px;
-  height: 500px;
-  object-fit: none;
-  object-position: left;
-  transform: scale(1);
-  transform-origin: left center;
-  margin-right: -30px;
-}
-
-
-
-
-    .image-wrapper {
-      margin-left: auto;
-      margin-right: 0;
-      max-width: 100%;
-      display: flex;
-      justify-content: flex-end;
+      width: 250px;
+      height: 500px;
+      object-fit: none;
+      object-position: left;
+      transform: scale(1);
+      transform-origin: left center;
+      margin-right: -30px;
     }
-
     .product-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-
     .product-title {
       font-size: 28px;
       font-weight: 500;
       margin-bottom: 16px;
       line-height: 1.4;
-      color: #000000;
     }
-
     .product-title.app {
-      font-weight: 100;
       font-size: 48px;
-      line-height: 1.2;
-      color: #000;
+      font-weight: 100;
       text-align: center;
     }
-
     .product-desc {
       font-size: 14px;
-      color: #909090;
       margin-bottom: 24px;
       line-height: 1.6;
-    }
-
-    .product-desc.app {
-      font-weight: 500;
-      font-size: 16px;
       color: #909090;
     }
-
+    .product-desc.app {
+      font-size: 16px;
+      font-weight: 500;
+    }
     .btn.btn-detail {
-      display: inline-block;
       width: 160px;
       height: 48px;
       line-height: 48px;
@@ -393,316 +306,162 @@
       font-weight: 500;
       font-size: 15px;
       align-self: center;
-
     }
-
-    .dark {
-      background: #1f1f1f;
-      color: white;
-    }
-
-    .dark .btn {
-      color: white;
-      border-color: white;
-    }
-
-    
-
+    /* フッター */
     .site-footer {
       background: #1f1f1f;
       color: white;
       padding: 60px 20px;
     }
-
     .footer-content {
-      font-family: 'Inter', sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: start;
-  text-align: left;
-}
-.footer-info,
-.footer-links h4,
-.footer-links li,
-.footer-info a {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  color: #cfcfcf;
-}
-
-.footer-content > div:first-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.footer-content > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.footer-content > div:last-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 32px;
+    }
+    .footer-content > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .footer-info,
+    .footer-links h4,
+    .footer-links li,
+    .footer-info a {
+      font-weight: 500;
+      font-size: 14px;
+      color: #cfcfcf;
+    }
     .footer-logo {
       font-size: 1.2rem;
       font-weight: bold;
-    }
-
-    .footer-info a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .footer-links h4 {
       margin-bottom: 8px;
-      font-size: 0.9rem;
     }
-
     .footer-links ul {
       list-style: none;
     }
-
     .footer-links li {
-      font-size: 0.85rem;
       margin-bottom: 4px;
+      font-size: 0.85rem;
     }
-
-    .product-text .btn,
-.product-content .btn {
-  align-self: center;
-}
-
-.product-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.site-footer img {
-  width: 50%;        /* ← 任意の縮小率（例：20%） */
-  height: auto;      /* 高さは自動調整 */
-  object-fit: contain; /* 画像の全体を収める（デフォルトでも切れません） */
-  margin-bottom: 24px; /* 下のテキストと距離を取る */
-}
-.product-system {
-  background-color: #ededed; /* .product-aiと同じ */
-}
-
-.product-text,
-.product-content,
-.product-text h3,
-.product-text p {
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-@media (max-width: 768px) {
-   /* 上書きで強制的に横並びに戻す */
-  .product-space {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    height: auto;
-  }
-
-  .product-space .product-left,
-  .product-space .product-right {
-    width: 50%;
-    height: auto;
-  }
-
-  .product-space .product-left img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .product-space .product-right .product-content {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .product-space .product-inner {
-    align-items: flex-start;
-  }
-
-  /* APP 横並び */
-  .product-app {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    padding: 16px;
-    height: auto;
-    gap: 16px;
-  }
-
-  .product-app .product-content {
-    flex: 1;
-    padding: 0;
-    align-items: flex-start;
-  }
-
-  .product-app .product-right {
-    flex: 1;
-    padding: 0;
-    justify-content: center;
-  }
-
-  .product-app .product-right img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    object-fit: contain;
-    margin: 0;
-  }
-
-  .product-title.app {
-    font-size: 24px;
-    text-align: left;
-  }
-
-  .product-desc.app {
-    font-size: 14px;
-  }
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-logo {
-    width: 180px;
-    height: auto;
-    margin-bottom: 24px;
-    display: none; /* ← この1行を追加 */
-  }
-
-  .hero-text h1 {
-    font-size: 20px;
-  }
-
-  .hero-text p.main {
-    font-size: 20px;
-  }
-
-  .hero-text p.sub {
-    font-size: 14px;
-  }
-
-  .product-wrapper {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .product-left-column,
-  .product-right-column {
-    width: 100%;
-    height: auto;
-  }
-
-  
-  .product-system-ai{
-    flex-direction: column;
-    height: auto;
-    max-width: 100%;
-  }
-
-  .product-system,
-  .product-ai {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .product-box {
-    flex-direction: row; /* ← 横並びにする */
-    align-items: center; /* ← 中央揃え */
-    gap: 16px; /* ← 画像とテキストに少し余白 */
-  }
-
-  .product-box img {
-    width: 100px;       /* 任意サイズ：横幅 */
-    height: 200px;      /* 任意サイズ：縦幅 */
-    object-fit: cover;  /* トリミング */
-    object-position: right center; /* ←右側を表示（左をカット） */
-    transform: none;
-    margin-bottom: 0;
-    margin-right: 12px;
-  }
-  .product-text {
-    flex: 1;            /* 余ったスペースを使う */
-    max-width: calc(100% - 112px); /* 画像幅+マージンを除いた幅 */
-  }
-  .product-text h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .product-text p {
-    font-size: 13px;
-    margin-bottom: 12px;
-  }
-
-  .product-app {
-    padding: 24px 16px;
-  }
-
-  .product-app .product-right img {
-    width: 100%;
-    height: auto;
-    margin-right: 0;
-  }
-
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .site-header {
-    padding: 16px;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .product-box .btn {
-    width: 160px;
-    height: 48px;
-    line-height: 48px;
-    font-size: 15px;
-    font-weight: 500;
-    text-align: center;
-    border: 1px solid #000;
-    color: #000;
-    background-color: transparent;
-    box-sizing: border-box;
-    align-self: center;
-    display: inline-block;
-  }
-
-  .product-ai .product-box .btn {
-    border: 1px solid #fff;
-    color: #fff;
-  }
-}
+    .site-footer img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 24px;
+    }
+    /* フェードインアニメーション */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (min-width: 769px) {
+      .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+    /* モバイル対応 */
+    @media (max-width: 768px) {
+      /* ヒーロー内ロゴ非表示 */
+      .hero-logo {
+        display: none;
+      }
+      /* 各プロダクトを縦積み */
+      .product-wrapper {
+        flex-direction: column;
+      }
+      .product-left-column,
+      .product-right-column {
+        width: 100%;
+        height: auto;
+      }
+      .product-space {
+        flex-direction: row !important;
+        flex-wrap: nowrap;
+        padding: 16px;
+      }
+      .product-space .product-left,
+      .product-space .product-right {
+        width: 50%;
+      }
+      .product-space .product-left img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+      .product-space .product-right .product-content {
+        margin-left: 0;
+        width: 100%;
+      }
+      .product-system-ai {
+        flex-direction: column;
+        height: auto;
+      }
+      .product-system,
+      .product-ai {
+        max-width: 100%;
+        height: auto;
+      }
+      .product-app {
+        flex-direction: row;
+        padding: 16px;
+        gap: 16px;
+        height: auto;
+      }
+      .product-app .product-right img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+      }
+      .product-title.app {
+        font-size: 24px;
+        text-align: left;
+      }
+      .product-desc.app {
+        font-size: 14px;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      .site-header {
+        padding: 16px;
+      }
+      .nav-menu {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
   </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // スマホだけ実行
+      if (window.innerWidth <= 768) {
+        const fadeEls = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        fadeEls.forEach(el => observer.observe(el));
+      }
+    });
+  </script>
 </head>
 <body>
-  <header class="site-header">
+  <!-- ヘッダー -->
+  <header class="site-header fade-in">
     <div class="header-inner">
       <div class="logo">
         <img src="images/logo1.png" alt="MY YOU ロゴ">
@@ -718,7 +477,8 @@
     </div>
   </header>
 
-  <section class="hero">
+  <!-- ヒーロー -->
+  <section class="hero fade-in">
     <div class="hero-content">
       <img src="images/logo2.png" alt="MY YOU ロゴ" class="hero-logo">
       <div class="hero-text">
@@ -729,10 +489,12 @@
     </div>
   </section>
 
-  <section class="products">
+  <!-- プロダクト一覧 -->
+  <section class="products fade-in">
     <div class="product-wrapper">
       <div class="product-left-column">
-        <div class="product-space">
+        <!-- 空間演出 -->
+        <div class="product-space fade-in">
           <div class="product-left">
             <img src="images/IMG_9188.jpg" alt="空間演出">
           </div>
@@ -746,7 +508,8 @@
             </div>
           </div>
         </div>
-        <div class="product-system-ai">
+        <!-- システム開発／AI DX支援 -->
+        <div class="product-system-ai fade-in">
           <div class="product-system">
             <div class="product-box">
               <img src="images/rp.png" alt="システム開発">
@@ -770,7 +533,8 @@
         </div>
       </div>
       <div class="product-right-column">
-        <div class="product-app">
+        <!-- App 開発 -->
+        <div class="product-app fade-in">
           <div class="product-content">
             <h3 class="product-title app">WEB App<br>iOS App</h3>
             <p class="product-desc app">We develop Web and iOS apps focused on essentials — no unnecessary features, just what fits your business.</p>
@@ -786,7 +550,8 @@
     </div>
   </section>
 
-  <footer class="site-footer">
+  <!-- フッター -->
+  <footer class="site-footer fade-in">
     <div class="footer-content">
       <div>
         <img src="images/logo1.png" alt="MY YOU">
@@ -815,4 +580,3 @@
   </footer>
 </body>
 </html>
-
