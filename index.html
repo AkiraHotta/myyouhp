@@ -505,10 +505,10 @@
 }
 
 @media (max-width: 768px) {
-   /* 空間演出 横並び */
-   /* 空間演出 横並び */
+   /* 上書きで強制的に横並びに戻す */
   .product-space {
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
@@ -610,9 +610,8 @@
     height: auto;
   }
 
-  .product-space,
-  .product-system-ai,
-  .product-app {
+  
+  .product-system-ai{
     flex-direction: column;
     height: auto;
     max-width: 100%;
