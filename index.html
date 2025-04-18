@@ -505,6 +505,77 @@
 }
 
 @media (max-width: 768px) {
+   /* 空間演出 横並び */
+   /* 空間演出 横並び */
+  .product-space {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    height: auto;
+  }
+
+  .product-space .product-left,
+  .product-space .product-right {
+    width: 50%;
+    height: auto;
+  }
+
+  .product-space .product-left img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .product-space .product-right .product-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .product-space .product-inner {
+    align-items: flex-start;
+  }
+
+  /* APP 横並び */
+  .product-app {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 16px;
+    height: auto;
+    gap: 16px;
+  }
+
+  .product-app .product-content {
+    flex: 1;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .product-app .product-right {
+    flex: 1;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .product-app .product-right img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+  }
+
+  .product-title.app {
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .product-desc.app {
+    font-size: 14px;
+  }
   .hero-content {
     flex-direction: column;
     text-align: center;
