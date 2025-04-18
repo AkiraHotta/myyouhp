@@ -587,6 +587,7 @@
     width: 180px;
     height: auto;
     margin-bottom: 24px;
+    display: none; /* ← この1行を追加 */
   }
 
   .hero-text h1 {
@@ -635,7 +636,7 @@
     width: 100px;       /* 任意サイズ：横幅 */
     height: 200px;      /* 任意サイズ：縦幅 */
     object-fit: cover;  /* トリミング */
-    object-position: left center; /* 左寄せ */
+    object-position: right center; /* ←右側を表示（左をカット） */
     transform: none;
     margin-bottom: 0;
     margin-right: 12px;
