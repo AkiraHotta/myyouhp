@@ -822,7 +822,7 @@
     /* 画像は80%幅で表示 */
     .case-study .case-image {
       display: block;
-      width: 80%;           /* スマホ時は幅80% */
+      width: 90%;           /* スマホ時は幅80% */
       height: auto;
       margin-bottom: 20px;  /* テキストとの隙間 */
     }
