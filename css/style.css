@@ -791,11 +791,14 @@
   }
   /* 見出し */
 .case-study .case-text h2 {
+    font-size: 32px; /* ← 好きなサイズに変更可能 */
+    
+    flex: 1;
+    padding: 0 40px;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;          /* thin */
-    font-size: 32px;
-    color: #FFFFFF;
-    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   /* 説明文 */
 .case-study .case-text p {
@@ -834,7 +837,7 @@
   
     /* 見出しサイズ調整 */
     .case-study .case-text h2 {
-      font-size: 24px;
+      font-size: 32x;
       margin-bottom: 12px;
     }
   
@@ -859,6 +862,7 @@
     padding: 48px 48px 0 48px; /* ← 上 右 下 左 の順でpadding */
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+
   }
   
   .indoor-image {
@@ -882,7 +886,7 @@
   .indoor-text h2 {
     font-family: 'Inter', sans-serif;
     font-weight: 100;            /* Thin */
-    font-size: 48px;
+    font-size: 32px; /* ← 好きなサイズに変更可能 */
     line-height: 1.2;
     color: #000000;              /* 黒 */
     margin-bottom: 24px;
@@ -946,7 +950,7 @@
     }
   
     .indoor-text h2 {
-      font-size: 24px;
+      font-size: 32px;
       margin-bottom: 16px;
     }
   
