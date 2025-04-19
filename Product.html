@@ -177,9 +177,18 @@
     </div>
 
       <div class="gallery-item">
-        <img src="images/IMG_25.png" alt="">
+        <img src="images/IMG_25.png" alt="動画再生" onclick="openModal('videos/videos02.mp4')">
         <p>恐竜</p>
       </div>
+      <!-- モーダル本体 -->
+    <div id="videoModal" class="modal" onclick="handleBackgroundClick(event)">
+        <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <video id="modalVideo" controls></video>
+        </div>
+    </div>
+
+    
       <div class="gallery-item">
         <img src="images/IMG_24.png" alt="">
         <p>タイムマシン</p>

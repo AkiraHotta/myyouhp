@@ -9,71 +9,55 @@
   <!-- 外部CSSを読み込む -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- ★ 以下、フェードインアニメーション用の追加CSS＆JS -->
+  <!-- フェードインアニメーション用CSS -->
   <style>
-    /* 最初は非表示・下にずらす */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    /* 表示状態 */
     .fade-in.show {
       opacity: 1;
       transform: translateY(0);
     }
-    /* PCでは常に表示 */
-    @media (min-width: 769px) {
-      .fade-in {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
-    }
   </style>
+</head>
+<body>
+  <!-- スクリプト -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // スマホだけ実行
-      function updateBodyPadding() {
       const header = document.querySelector('.site-header');
-      const height = header.offsetHeight;
-      document.body.style.paddingTop = height + 'px';
-    }
-    window.addEventListener('DOMContentLoaded', updateBodyPadding);
-    window.addEventListener('resize', updateBodyPadding);
-      // 固定ヘッダーの高さを取得して body の余白に設定
-      const header = document.querySelector('.site-header');
-      document.body.style.paddingTop = header.offsetHeight + 'px';
-
-      // 既存のフェードイン処理（スマホ用）もそのまま
-      if (window.innerWidth <= 768) {
-        const fadeEls = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        fadeEls.forEach(el => observer.observe(el));
+      if (header) {
+        document.body.style.paddingTop = header.offsetHeight + 'px';
       }
-      // ハンバーガーメニューのトグル
+
+      // フェードイン（PC・モバイル両対応）
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeEls.forEach(el => observer.observe(el));
+
+      // ハンバーガーメニュー
       const burger = document.querySelector('.hamburger');
       const nav = document.querySelector('.nav-menu');
-      burger.addEventListener('click', () => {
-        nav.classList.toggle('open');
-    });
-    // ここから追加：メニュー項目をクリックしたら自動で閉じる
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
+      if (burger && nav) {
+        burger.addEventListener('click', () => {
+          nav.classList.toggle('open');
+        });
+      }
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (nav) nav.classList.remove('open');
+        });
       });
-
     });
-
-  });
   </script>
 </head>
 <body>
