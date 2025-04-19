@@ -35,6 +35,29 @@
 
 <!-- ★ここにスクリプトを追加★ -->
 <script>
+    function openModal(videoSrc) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.src = videoSrc;
+    modal.style.display = 'flex'; // ← flexで中央配置
+    video.play();
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.pause();
+    video.currentTime = 0;
+    video.src = '';
+    modal.style.display = 'none';
+  }
+
+  // 背景クリックで閉じる（中の動画領域以外をクリックしたら閉じる）
+  function handleBackgroundClick(event) {
+    if (event.target.id === 'videoModal') {
+      closeModal();
+    }
+ }
     // ハンバーガーメニュー開閉
     document.addEventListener('DOMContentLoaded', function () {
       const hamburger = document.querySelector('.hamburger');
@@ -141,9 +164,18 @@
     <h2>Project Gallery</h2>
     <div class="gallery-wrapper">
       <div class="gallery-item">
-        <img src="images/IMG_23.png" alt="">
+        <img src="images/IMG_23.png" alt="動画再生" onclick="openModal('videos/videos01.mp4')">
         <p>水流</p>
       </div>
+
+      <!-- モーダル本体 -->
+    <div id="videoModal" class="modal" onclick="handleBackgroundClick(event)">
+        <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <video id="modalVideo" controls></video>
+        </div>
+    </div>
+
       <div class="gallery-item">
         <img src="images/IMG_25.png" alt="">
         <p>恐竜</p>
