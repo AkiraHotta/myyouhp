@@ -933,6 +933,7 @@
     .indoor-section {
       flex-direction: column;
       padding: 40px 20px;
+      height: 800px; /* ← 高さを固定してください（任意に調整） */
     }
   
     .indoor-text {
