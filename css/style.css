@@ -1128,9 +1128,9 @@
       align-items: center;
     }
     .projection-images img {
-      width: 100% !important;
+      width: 80% !important;
       height: auto !important;
-      max-width: 100%;
+      max-width: 80%;
     }
     .projection-text {
       padding: 24px 0;
