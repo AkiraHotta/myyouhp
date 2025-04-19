@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap" rel="stylesheet">
   <style>
+    /* ページ全体のスムーズスクロールを有効化 */
+    html {
+      scroll-behavior: smooth;
+    }
          * {
       box-sizing: border-box;
       margin: 0;
@@ -816,6 +820,15 @@
       burger.addEventListener('click', () => {
         nav.classList.toggle('open');
     });
+    // ここから追加：メニュー項目をクリックしたら自動で閉じる
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+      });
+
+    });
+
   });
   </script>
 </head>
@@ -835,8 +848,8 @@
         <ul class="nav-menu">
           <li><a href="#">Home</a></li>
           <li><a href="#">Product</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Support/Contact</a></li>
+          <li><a href="#footer">About Us</a></li>
+          <li><a href="#footer">Support/Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -912,7 +925,7 @@
     </div>
   </section>
 
-  <footer class="site-footer fade-in">
+  <footer id="footer" class="site-footer fade-in">
     <div class="footer-content fade-in">
       <div>
         <img src="images/logo1.png" alt="MY YOU">
