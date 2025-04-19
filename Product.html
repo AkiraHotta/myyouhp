@@ -31,7 +31,45 @@
     /* 以降、必要に応じて index.html からコピー */
   </style>
 </head>
-<body>
+
+
+<!-- ★ここにスクリプトを追加★ -->
+<script>
+    // ハンバーガーメニュー開閉
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+  
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function () {
+          navMenu.classList.toggle('open');
+        });
+      }
+  
+      // フェードイン処理（Intersection Observer）
+      const faders = document.querySelectorAll('.fade-in');
+  
+      const options = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+  
+      const fadeInOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target); // 一度表示したら監視を外す
+          }
+        });
+      }, options);
+  
+      faders.forEach(el => {
+        fadeInOnScroll.observe(el);
+      });
+    });
+  </script>
+
+</body>
 
   <!-- ヘッダー（共通） -->
   <header class="site-header fade-in">
@@ -90,10 +128,11 @@
     </div>
   
     <!-- 右側：画像（上下余白ゼロ・右端ぴったり） -->
+   
     <div class="indoor-image">
-      <img src="images/IMG_22.png" alt="屋内に出現する、立体映像体験。">
+        <img src="images/IMG_22.png" alt="屋内に出現する、立体映像体験。">
     </div>
-  </section>
+</section>
   
   </section>
   
