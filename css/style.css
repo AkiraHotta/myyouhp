@@ -822,7 +822,7 @@
     /* 画像は80%幅で表示 */
     .case-study .case-image {
       display: block;
-      width: 90%;           /* スマホ時は幅80% */
+      width: 100%;           /* スマホ時は幅80% */
       height: auto;
       margin-bottom: 20px;  /* テキストとの隙間 */
     }
@@ -851,11 +851,12 @@
     justify-content: space-between;
     align-items: stretch;
     padding: 0;
+    background: #ededed; /* ← 追加！ */
   }
   
   .indoor-text {
     flex: 1;
-    padding: 48px;
+    padding: 48px 48px 0 48px; /* ← 上 右 下 左 の順でpadding */
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
   }
@@ -879,18 +880,20 @@
 
   
   .indoor-text h2 {
-    font-weight: 100;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;            /* Thin */
     font-size: 48px;
     line-height: 1.2;
-    color: #000;
+    color: #000000;              /* 黒 */
     margin-bottom: 24px;
   }
   
   .indoor-text p {
-    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;            /* Medium */
     font-size: 16px;
     line-height: 1.8;
-    color: #909090;
+    color: #909090;              /* グレー */
     margin-bottom: 32px;
   }
   
@@ -970,3 +973,52 @@
       margin: 0 auto;
     }
   }
+  .project-gallery {
+    max-width: 1440px;
+    margin: 80px auto;
+    padding: 0 20px;
+  }
+  
+  .gallery-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .gallery-item {
+    width: 300px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-6px);
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    object-fit: cover;
+  }
+  
+  .gallery-item p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+  }
+  .project-gallery h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 40px;
+  }
+  
