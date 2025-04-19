@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Product ｜ MY YOU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap" rel="stylesheet">
+  <!-- 外部CSSを読み込む -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* プロダクトページ専用セクション */
+    .project-gallery, .case-study, .service-modules,
+    .saas-lineup, .integration, .ai-support {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+    .project-gallery h2,
+    .case-study h2,
+    .service-modules h2,
+    .saas-lineup h2,
+    .integration h2,
+    .ai-support h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    /* 以降、必要に応じて index.html からコピー */
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー（共通） -->
+  <header class="site-header fade-in">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="images/logo1.png" alt="MY YOU ロゴ">
+      </div>
+      <!-- ハンバーガーアイコン -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="index.html#products">Product</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#footer">Support/Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- 立体映像 × 空間演出を、もっと身近に。ー -->
+  <section class="case-study fade-in">
+    <div class="case-content">
+      <div class="case-image">
+        <img src="images/IMG_21.png" alt="立体映像：空間演出">
+      </div>
+      <div class="case-text">
+        <h2>立体映像 × 空間演出を、もっと身近に。</h2>
+        <p>
+          空間の体験価値は、映像で変わる。<br>
+          私たちは、映像体験やプロジェクション演出をもっと身近に、もっと目的に沿った演出環境として提供しています。<br>
+          実際の設置現場はもちろん、イベント会場や商業施設、展示ブースなど多彩なシーンで活用可能。<br>
+          熱を持たず、音にも配慮したLEDディスプレイとプロジェクションマッピングで、ただ見るだけではない「体験型演出」をお届けします。
+        </p>
+      </div>
+    </div>
+  </section>
+    <!-- HTML: 屋内に出現する、立体映像体験。セクション -->
+<section class="indoor-section">
+    <!-- 左側：テキスト -->
+    <div class="indoor-text">
+      <h2>屋内に出現する、<br>立体映像体験。</h2>
+      <p>
+        これは本当に部屋に浮き出ているわけではありません。<br>
+        壁面のLEDビジョンに特殊な映像を投影することで、<br>
+        視覚の錯覚を利用して、立体的に見せる体験です。<br>
+        新宿のショッピングモールや商業施設で導入実績多数。
+      </p>
+      
+    </div>
+  
+    <!-- 右側：画像（上下余白ゼロ・右端ぴったり） -->
+    <div class="indoor-image">
+      <img src="images/case1.jpg" alt="屋内に出現する、立体映像体験。">
+    </div>
+  </section>
+  
+  </section>
+  
+  <!-- 1. ギャラリー -->
+  <section class="project-gallery fade-in">
+    <h2>Project Gallery</h2>
+    <div class="gallery-wrapper">
+      <!-- 仮置き4枚 -->
+      <div class="gallery-item"><img src="images/proj1.jpg" alt=""><p>水流</p></div>
+      <div class="gallery-item"><img src="images/proj2.jpg" alt=""><p>恐竜</p></div>
+      <div class="gallery-item"><img src="images/proj3.jpg" alt=""><p>タイムマシン</p></div>
+      <div class="gallery-item"><img src="images/proj4.jpg" alt=""><p>その他</p></div>
+    </div>
+  </section>
+
+
+
+  <!-- 3. WEB App / iOS App モジュール紹介 -->
+  <section class="service-modules fade-in">
+    <h2>WEB App iOS App — モジュール型業務支援アプリ</h2>
+    <div class="module-wrapper">
+      <div class="module-item">
+        <img src="images/module1.png" alt="">
+        <h3>業務支援App</h3>
+        <p>売上・発注・検品…</p>
+      </div>
+      <div class="module-item">
+        <img src="images/module2.png" alt="">
+        <h3>SNS連携App</h3>
+        <p>SNS予約・投稿…</p>
+      </div>
+      <!-- 他モジュールも同様に -->
+    </div>
+  </section>
+
+  <!-- 4. SaaS App ラインナップ -->
+  <section class="saas-lineup fade-in">
+    <h2>SaaS App – Service Lineup</h2>
+    <ul class="lineup-list">
+      <li class="lineup-item"><img src="images/saas1.png" alt=""><p>業務支援App</p></li>
+      <li class="lineup-item"><img src="images/saas2.png" alt=""><p>SNS連携App</p></li>
+      <li class="lineup-item"><img src="images/saas3.png" alt=""><p>スタッフ呼び出しApp</p></li>
+      <li class="lineup-item"><img src="images/saas4.png" alt=""><p>音楽生演奏管理App</p></li>
+    </ul>
+  </section>
+
+  <!-- 5. ハード・ソフト・AI 連携紹介 -->
+  <section class="integration fade-in">
+    <h2>構想からハード・ソフト・AIまで、一貫でカタチに。</h2>
+    <div class="integration-content">
+      <div class="integration-text">
+        <p>ハードウェア設計から…</p>
+      </div>
+      <div class="integration-image">
+        <img src="images/integration.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. AI DX 支援セクション -->
+  <section class="ai-support fade-in">
+    <h2>AI DX支援</h2>
+    <div class="ai-wrapper">
+      <div class="ai-text">
+        <p>AIは知の産業革命…</p>
+      </div>
+      <div class="ai-image">
+        <img src="images/ai.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター（共通） -->
+  <footer id="footer" class="site-footer">…</footer>
+
+</body>
+</html>
