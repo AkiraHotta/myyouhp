@@ -427,4 +427,238 @@
     overflow-wrap: break-word;
   }
 
+    /* メディアクエリ：スマホ以下 */
+  @media (max-width: 768px) {
+    .site-header {
+      padding: 16px;
+    }
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;     /* ← ここでメニューを右端に配置しています */
+      left: auto;
+      width: auto;  /* 幅はリンクに合わせる */
+      flex-direction: column;
+      background: #fff;
+      display: none;
+      gap: 0;
+    }
+    .nav-menu.open {
+      display: flex;
+    }
+    .nav-menu li {
+      border-bottom: 1px solid #eee;
+    }
+    .nav-menu li a {
+      padding: 12px 16px;
+    }
+
+    /* モバイル用見出しサイズを上書き */
+    .product-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
     
+    /* 上書きで強制的に横並びに戻す */
+    .product-space {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap;
+      justify-content: flex-start !important; /* 左寄せ */
+      align-items: center ; /* 中央揃えに変更 */
+      margin: 0 !important;                   /* 外側余白を消去 */
+      padding: 0 !important;                  /* 内側余白を消去 */
+      height: 420px;
+    }
+
+    .product-space .product-left,
+    .product-space .product-right {
+      width: 50%;
+      height: auto;
+      display: flex;
+      align-items: center;      /* テキストは縦中央揃え */
+    }
+
+    /* モバイル用：空間演出画像調整 */
+    .product-space .product-left img {
+      width: 100%;         /* 幅を100%に設定 */
+      height: 100%;       /* コンテナの高さにフィット */
+      object-fit: cover;   /* トリミングして全体をカバー */
+      object-position: center; /* 中心を表示 */
+      align-self: flex-start ;   /* 画像は上端に配置 */
+      margin: 0;          /* 余白を削除 */
+      padding: 0;         /* 余白を削除 */
+    }
+
+    .product-space .product-right .product-content {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .product-space .product-inner {
+      align-items: flex-start;
+    }
+
+    /* APP 横並び */
+    .product-app {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: 16px;
+      height: auto;
+      gap: 16px;
+    }
+
+    .product-app .product-content {
+      flex: 1;
+      padding: 0;
+      align-items: flex-start;
+    }
+
+    .product-app .product-right {
+      flex: 1;
+      padding: 0;
+      justify-content: center;
+    }
+
+    .product-app .product-right img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+      margin: 0;
+      
+    }
+
+    .product-title.app {
+      font-size: 24px;
+      text-align: left;
+    }
+
+    .product-desc.app {
+      font-size: 14px;
+    }
+
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 24px;
+      display: none; /* ← この1行を追加 */
+    }
+
+    .hero-text h1 {
+      font-size: 20px;
+    }
+
+    .hero-text p.main {
+      font-size: 20px;
+    }
+
+    .hero-text p.sub {
+      font-size: 14px;
+    }
+
+    .product-wrapper {
+      flex-direction: column;
+      height: auto;
+    }
+
+    .product-left-column,
+    .product-right-column {
+      width: 100%;
+      height: auto;
+    }
+
+    .product-system-ai{
+      flex-direction: column;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .product-system,
+    .product-ai {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .product-box {
+      flex-direction: row; /* ← 横並びにする */
+      align-items: center; /* ← 中央揃え */
+      gap: 16px; /* ← 画像とテキストに少し余白 */
+    }
+
+    .product-box img {
+      width: 100px;       /* 任意サイズ：横幅 */
+      height: 200px;      /* 任意サイズ：縦幅 */
+      object-fit: cover;  /* トリミング */
+      object-position: right center; /* ←右側を表示（左をカット） */
+      transform: none;
+      margin-bottom: 0;
+      margin-right: 12px;
+    }
+
+    .product-text {
+      flex: 1;            /* 余ったスペースを使う */
+      max-width: calc(100% - 112px); /* 画像幅+マージンを除いた幅 */
+    }
+
+    .product-text h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .product-text p {
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .product-app {
+      padding: 24px 16px;
+    }
+
+    .product-app .product-right img {
+      width: 100%;
+      height: auto;
+      margin-right: 0;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .site-header {
+      padding: 16px;
+    }
+
+    .nav-menu {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-box .btn {
+      width: 160px;
+      height: 48px;
+      line-height: 48px;
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      border: 1px solid #000;
+      color: #000;
+      background-color: transparent;
+      box-sizing: border-box;
+      align-self: center;
+      display: inline-block;
+    }
+
+    .product-ai .product-box .btn {
+      border: 1px solid #fff;
+      color: #fff;
+    }
+    
+  }
