@@ -170,3 +170,25 @@
     margin-bottom: 40px;
     color: #303030; /* お好みで色を調整 */
   }
+  @media (max-width: 768px) {
+    /* ヒーロー画像を中央寄せ */
+    .app-hero .hero-image {
+      align-self: center;
+      margin: 20px auto 0; /* 上マージンはお好みで調整 */
+    }
+  
+    /* タイトルはそのまま中央揃え */
+    .app-hero .hero-text h1 {
+      text-align: center;
+    }
+  
+    /* 説明文（サブテキスト）は左寄せ */
+    .app-hero .hero-text p.sub {
+      text-align: left;
+    }
+    /* 説明セクションの左右余白をヒーローと同じ20pxに統一 */
+  .description-section .content-wrapper {
+    padding: 0 40px;
+  }
+}
+  
