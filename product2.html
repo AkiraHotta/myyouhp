@@ -1,0 +1,219 @@
+<!-- ファイル: product2.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>WEB App / iOS App ｜ MY YOU</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/product2.css">
+</head>
+
+<!-- ★ここにスクリプトを追加★ -->
+<script>
+    function openModal(videoSrc) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.src = videoSrc;
+    modal.style.display = 'flex'; // ← flexで中央配置
+    video.play();
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.pause();
+    video.currentTime = 0;
+    video.src = '';
+    modal.style.display = 'none';
+  }
+
+  // 背景クリックで閉じる（中の動画領域以外をクリックしたら閉じる）
+  function handleBackgroundClick(event) {
+    if (event.target.id === 'videoModal') {
+      closeModal();
+    }
+ }
+    // ハンバーガーメニュー開閉
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+  
+      if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function () {
+          navMenu.classList.toggle('open');
+        });
+      }
+  
+      // フェードイン処理（Intersection Observer）
+      const faders = document.querySelectorAll('.fade-in');
+  
+      const options = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+  
+      const fadeInOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target); // 一度表示したら監視を外す
+          }
+        });
+      }, options);
+  
+      faders.forEach(el => {
+        fadeInOnScroll.observe(el);
+      });
+    });
+  </script>
+
+<body>
+  <!-- ヘッダー（product.html と同一） -->
+  <header class="site-header fade-in">
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo1.png" alt="MY YOU ロゴ">
+        </a>
+      </div>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#">Product</a>
+            <ul class="submenu">
+              <li><a href="Product.html">空間映像ソリューション</a></li>
+              <li><a href="product2.html">WEB / iOS App</a></li>
+              <li><a href="product3.html">システム開発</a></li>
+              <li><a href="product4.html">AI DX支援</a></li>
+            </ul>
+          </li>
+          <li><a href="#footer">About Us</a></li>
+          <li><a href="#footer">Support/Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="app-hero fade-in">
+    <div class="hero-content">
+      <div class="hero-image">
+        <img src="images/IMG_31.png" alt="WEB App iOS App">
+      </div>
+      <div class="hero-text">
+        <h1>WEB App iOS App</h1>
+        <p class="main">モジュール型業務支援アプリ</p>
+        <p class="sub">
+          売上管理、現金管理、機材や両替機のステータスまで──店舗ごとの業務フローにあわせて、
+          必要な機能を選んで使えるモジュール型SaaSアプリ。
+          現場からの声をベースに開発された柔軟な設計で、ムダなく・確実に店舗運営を支援します。
+          必要な機能がなければ、相談に応じて追加開発も可能です。
+        </p>
+      </div>
+    </div>
+  </section>
+<style>
+  p {
+    margin-bottom: 24px; /* ここで段落の間のスペースを作る */
+  }
+</style>
+  <!-- 説明セクション -->
+<section class="description-section fade-in">
+    <div class="content-wrapper">
+      <div class="left">
+        <h2>現場を支える、“WebとiOSで使える”業務支援アプリ。</h2>
+  
+        <p>
+          売上・現金・機材・両替の情報を一元管理できるWebアプリに加え、
+          店舗での発注・棚卸し・スタッフ対応・SNS運用などに最適化したiOS専用アプリもご提供。<br>
+          PCからの管理・現場での即時対応を両立し、
+          あらゆる店舗運営を、よりシンプルでスマートに変えていきます。
+        </p>
+  
+        <p>
+          さらに、スマートフォンのカメラやGPS、タッチパネルなどの機能を活用することで、
+          これまで手間のかかっていた受領場所・時間の記録や共有、受領サインのデジタル保存、
+          カメラを使ったバーコードスキャンなどがスマートフォン1台で完結。<br>
+          専用端末や紙のやり取りを不要にし、業務の正確性とスピードを大幅に向上させます。
+        </p>
+      </div>
+  
+      <div class="right">
+        <h3>Webアプリ（PC・タブレット対応）</h3>
+        <ul>
+          <li>売上管理：日別・月別の売上データをグラフで可視化。</li>
+          <li>現金管理：入出金記録と現金残高をリアルタイムで追跡。</li>
+          <li>機材管理：店舗備品の貸出状況やメンテ履歴を一覧化。</li>
+          <li>両替機管理：両替残量や使用履歴をリモートでチェック可能。</li>
+        </ul>
+  
+        <h3>iOSアプリ（iPad / iPhone対応）</h3>
+        <ul>
+          <li>発注端末：商品の在庫確認・発注入力をスムーズに。</li>
+          <li>棚卸し端末：QRコード読み取りでスピーディな在庫照合。</li>
+          <li>QRスタッフコール：フロアからスタッフをすばやく呼び出し。</li>
+          <li>SNS投稿支援：X（旧Twitter）用の定型文を自動生成し投稿支援。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービスラインナップ -->
+  <section class="service-lineup fade-in">
+        <!-- ここに見出しを追加 -->
+        <h2 class="section-title">SaaS App – Service Lineup</h2>
+
+    <div class="service-wrapper">
+      <div class="service-item">
+        <img src="images/icon-support.png" alt="業務支援App">
+        <p>業務支援App<br>
+        MYアプリ<br>
+        （Web/スマートフォン）</p>
+      </div>
+      <div class="service-item">
+        <img src="images/CapsuleToyX.png" alt="SNS投稿生成App">
+        <p>SNS投稿生成App<br>
+        CapsuleToyX<br>
+        （iOS）</p>
+      </div>
+      <div class="service-item">
+        <img src="images/apple-touch-icon.png" alt="スタッフ呼び出しApp">
+        <p>スタッフ呼び出しApp<br>
+        GachaCall<br>
+        （Web/スマートフォン/iOS）</p>
+      </div>
+      <div class="service-item">
+        <img src="images/icon-production.png" alt="営業生産性管理App">
+        <p>クラウド型カメラViewer<br>
+        （Web/スマートフォン）<br>
+        6月リリース予定</p>
+      </div>
+      <div class="service-item">
+        <img src="images/icon-production.png" alt="営業生産性管理App">
+        <p>営業生産性管理App<br>
+        （Web/スマートフォン）<br>
+        7月リリース予定</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター（product.html と同一） -->
+  <footer id="footer" class="site-footer fade-in">
+    <div class="footer-inner">
+      <img src="images/logo1.png" alt="MY YOU ロゴ" class="footer-logo">
+      <p class="main">人とつながる場所に、新しい価値が生まれる。</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

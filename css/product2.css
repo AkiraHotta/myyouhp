@@ -1,0 +1,172 @@
+/* ファイル: css/product2.css */
+/* 共通CSSは common.css として別途読み込み */
+
+.app-hero {
+    background: #303030;
+    color: #fff;
+    padding: 80px 20px 0;     /* 上 80px / 左右 20px / 下 0 */
+  }
+  .app-hero .hero-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;            /* ← 画像とテキストの間に40px開ける */
+  }
+  .app-hero .hero-image {
+    flex: 1;
+    max-width: 300px;
+    align-self: flex-end;
+    margin: 20px 0 0 0;
+  }
+  .app-hero .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+  .app-hero .hero-text {
+    flex: 1;
+    align-self: center;
+    padding: 0 20px;      /* ← テキスト左右に20pxずつ余白 */
+
+  }
+  .app-hero .hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .app-hero .hero-text p.main {
+    font-size: 20px;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .app-hero .hero-text p.sub {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* 説明セクション */
+  .description-section {
+    background: #f0f0f0;
+    padding: 80px 0;       /* 左右パディングは wrapper に移動 */
+  }
+  
+  .description-section .content-wrapper {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;       /* ← 左右それぞれ60pxずつ余白を追加 */
+    gap: 60px;
+  }
+  .description-section .left,
+  .description-section .right {
+    flex: 1;
+  }
+  .description-section .left h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .description-section .left p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .description-section .right h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .description-section .right ul {
+    list-style: disc inside;
+    margin-bottom: 24px;
+  }
+  .description-section .right ul li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  /* サービス一覧 */
+  .service-lineup {
+    padding: 80px 20px;
+  }
+  .service-lineup .service-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .service-lineup .service-item {
+    background: #f4f4f4;
+    border-radius: 12px;
+    padding: 24px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  .service-lineup .service-item:hover {
+    transform: translateY(-6px);
+  }
+  .service-lineup .service-item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+  .service-lineup .service-item p {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  /* モバイル対応 */
+  @media (max-width: 768px) {
+    .app-hero .hero-content,
+    .description-section .content-wrapper,
+    .service-lineup .service-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    .app-hero .hero-text,
+    .app-hero .hero-image,
+    .description-section .left,
+    .description-section .right {
+      width: 100%;
+    }
+    .service-lineup .service-item {
+      width: 80%;
+      max-width: 300px;
+    }
+  }
+
+  /* ファイル: css/product2.css の該当箇所に追記 */
+
+.service-lineup .service-item {
+    cursor: pointer;                                  /* 指型カーソル */
+    transition: transform 0.2s ease, box-shadow 0.2s;  /* ホバー時の影も遷移 */
+  }
+  
+  .service-lineup .service-item img {
+    display: block;
+    margin: 0 auto 12px;    /* 中央揃え + 下に余白 */
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;     /* 角丸を8pxに設定（お好みで調整可） */
+  }
+  
+  .service-lineup .service-item:hover {
+    transform: translateY(-6px);                      /* 浮き上がり */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);           /* 浮き出し影 */
+  }
+
+  /* セクション見出し */
+.section-title {
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #303030; /* お好みで色を調整 */
+  }
