@@ -1,5 +1,5 @@
 .hero {
-    background: #1f1f1f;
+    background: #303030;
     color: white;
     display: flex;
     justify-content: center;
@@ -328,7 +328,7 @@
   }
 
   .site-footer {
-    background: #1f1f1f;
+    background: #303030;
     color: white;
     padding: 60px 20px;
   }

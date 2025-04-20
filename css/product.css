@@ -2,7 +2,7 @@
 /*product.hyml専用css*/
 
 .case-study {
-    background: #1f1f1f;
+    background: #303030;
     color: white;
     padding: 0;                /* 上下余白は .case-content 内で調整 */
   }
