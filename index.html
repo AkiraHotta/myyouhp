@@ -24,91 +24,99 @@
   </style>
 </head>
 <body>
-  <!-- スクリプト -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector('.site-header');
-  if (header) {
-    document.body.style.paddingTop = header.offsetHeight + 'px';
+  <!-- ★ここにスクリプトを追加★ -->
+<script>
+  function openModal(videoSrc) {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.src = videoSrc;
+  modal.style.display = 'flex'; // ← flexで中央配置
+  video.play();
+}
+
+function closeModal() {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.pause();
+  video.currentTime = 0;
+  video.src = '';
+  modal.style.display = 'none';
+}
+
+// 背景クリックで閉じる（中の動画領域以外をクリックしたら閉じる）
+function handleBackgroundClick(event) {
+  if (event.target.id === 'videoModal') {
+    closeModal();
   }
+}
+  // ハンバーガーメニュー開閉
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-  // フェードイン
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  fadeEls.forEach(el => observer.observe(el));
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', function () {
+        navMenu.classList.toggle('open');
+      });
+    }
 
-  // ハンバーガー
-  const burger = document.querySelector('.hamburger');
-  const nav = document.querySelector('.nav-menu');
-  if (burger && nav) {
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-  }
+    // フェードイン処理（Intersection Observer）
+    const faders = document.querySelectorAll('.fade-in');
 
-  // サブメニュー展開（スマホのみ）
-  const submenuTriggers = document.querySelectorAll('.nav-menu .has-submenu > a');
-  submenuTriggers.forEach(trigger => {
-    trigger.addEventListener('click', function (e) {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parentLi = this.parentElement;
-        parentLi.classList.toggle('open');
-      }
+    const options = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const fadeInOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // 一度表示したら監視を外す
+        }
+      });
+    }, options);
+
+    faders.forEach(el => {
+      fadeInOnScroll.observe(el);
     });
   });
+</script>
 
-  // メニューリンククリックで閉じる（スマホ時）
-  const navLinks = document.querySelectorAll('.nav-menu a[href]');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (nav.classList.contains('open')) {
-        nav.classList.remove('open');
-      }
-    });
-  });
-});
-  </script>
-</head>
-<body>
-  <header class="site-header fade-in">
-    <div class="header-inner">
-      <div class="logo">
-        <a href="index.html">
-          <img src="images/logo1.png" alt="MY YOU ロゴ">
-        </a>
-      </div>
-      <!-- ここにハンバーガーアイコンを追加 -->
-      <div class="hamburger">
-          <span></span>
-          <span></span>
-        <span></span>
-      </div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li class="has-submenu">
-            <a href="#">Product</a>
-            <ul class="submenu">
-              <li><a href="product.html">空間映像ソリューション</a></li>
-              <li><a href="product2.html">WEB / iOS App</a></li>
-              <li><a href="product3.html">システム開発</a></li>
-              <li><a href="product4.html">AI DX支援</a></li>
-            </ul>
-          </li>
-          <li><a href="#footer">About Us</a></li>
-          <li><a href="#footer">Support/Contact</a></li>
-        </ul>
-      </nav>
+
+
+<!-- ヘッダー（共通） -->
+<header class="site-header fade-in">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo1.png" alt="MY YOU ロゴ">
+      </a>
     </div>
-  </header>
+    <!-- ハンバーガーアイコン -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a href="#">Product</a>
+          <ul class="submenu">
+            <li><a href="Product.html">空間映像ソリューション</a></li>
+            <li><a href="product2.html">WEB / iOS App</a></li>
+            <li><a href="product3.html">システム開発</a></li>
+            <li><a href="product4.html">AI DX支援</a></li>
+          </ul>
+        </li>
+        <li><a href="#footer">About Us</a></li>
+        <li><a href="#footer">Support/Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <section class="hero fade-in">
     <div class="hero-content">

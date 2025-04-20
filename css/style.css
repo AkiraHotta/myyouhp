@@ -91,6 +91,8 @@
       border-radius: 2px;
     }
 
+    /* indexーーーーーーーーーーーー */ 
+
     .hero {
       background: #1f1f1f;
       color: white;
@@ -757,7 +759,9 @@
       }
       
     }
- /* — 立体映像：空間演出セクション — */
+
+
+ /* — 立体映像：空間演出セクション --------------— */
 .case-study {
     background: #1f1f1f;
     color: white;
