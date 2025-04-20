@@ -98,7 +98,9 @@
   <header class="site-header fade-in">
     <div class="header-inner">
       <div class="logo">
-        <img src="images/logo1.png" alt="MY YOU ロゴ">
+        <a href="index.html">
+          <img src="images/logo1.png" alt="MY YOU ロゴ">
+        </a>
       </div>
       <!-- ハンバーガーアイコン -->
       <div class="hamburger">
@@ -108,10 +110,18 @@
       </div>
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html#top">Home</a></li>
-          <li><a href="index.html#products">Product</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#footer">Support/Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#">Product</a>
+            <ul class="submenu">
+              <li><a href="Product.html">空間映像ソリューション</a></li>
+              <li><a href="product2.html">WEB / iOS App</a></li>
+              <li><a href="product3.html">システム開発</a></li>
+              <li><a href="product4.html">AI DX支援</a></li>
+            </ul>
+          </li>
+          <li><a href="#footer">About Us</a></li>
+          <li><a href="#footer">Support/Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -221,6 +231,7 @@
 <footer id="footer" class="site-footer">
     <div class="footer-inner">
       <img src="images/logo1.png" alt="MY YOU ロゴ" class="footer-logo">
+      <p class="main">人とつながる場所に、新しい価値が生まれる。</p>
       
     </div>
   </footer>
