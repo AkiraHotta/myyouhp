@@ -463,3 +463,10 @@ html {
     }
     
   }
+  /* ヘッダー／フッターなど共通レイアウト */
+.site-header, .site-footer {
+  font-family: 'Inter', sans-serif;
+}
+.nav-menu li a:hover { color: #000; }
+.btn, .btn-detail { transition: transform .2s, box-shadow .2s; }
+.btn:hover, .btn-detail:hover { transform: translateY(-4px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }

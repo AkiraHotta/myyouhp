@@ -1,0 +1,343 @@
+/* css/aidx.css (AIDX支援ページ専用) */
+
+/* AIDX支援専用ヒーロー */
+.aidx-hero {
+    background: #303030 url('../images/aidx-bg.jpg') center/cover no-repeat;
+    padding: 70px 0 0; /* ヘッダー高さ分の余白を上部に追加 */
+  }
+  .aidx-hero .hero-container {
+    display: flex;
+    max-width: 1440px;
+    min-height: 400px; /* 高さを自動拡張可能に */
+    margin: 0 auto;
+    align-items: flex-start; /* 上詰めにしてテキスト全体を表示 */
+  }
+  .aidx-hero .hero-image {
+    flex: none;
+    height: 400px;
+    overflow: hidden;
+  }
+  .aidx-hero .hero-image img {
+    display: block;
+    height: 500px;
+    width: auto;
+    object-fit: cover;
+  }
+  .aidx-hero .hero-text {
+    flex: 1;
+    padding: 0 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .aidx-hero .title {
+    font-size: 48px;
+    font-weight: 100;
+    margin-bottom: 16px;
+  }
+  .aidx-hero .subtitle {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  /* フェードイン用 */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease-out, transform .8s ease-out;
+  }
+  .fade-in.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* セッションレイアウト（背景：#ededed、線のみ切り分け） */
+  /* セッションレイアウト（背景：#ededed、線のみ切り分け、中央3列固定） */
+  .aidx-content {
+    width: 100%;               /* ビューポートいっぱい */
+    background: #ededed;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 300px));
+    justify-content: center;   /* 中央配置 */
+    gap: 0 24px;
+  }
+  /* 各セクションは背景透明 */
+  .aidx-section {
+    background: transparent;
+    padding: 16px 0 24px;
+  }
+  /* セクション間を縦線で区切る */
+  .aidx-content .aidx-section + .aidx-section {
+    border-left: 1px solid #ddd;
+    padding-left: 24px;
+  }
+  /* テキスト設定 */
+  .aidx-section h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .aidx-section p,
+  .aidx-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .aidx-section ul {
+    list-style: disc inside;
+  }
+  
+  /* Session4 は中央寄せ、線なし */
+  .aidx-section.session4 {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 0 0 24px;
+    border: none;
+  }
+  /* Session4 バナー中央配置＆テキストオーバーレイ */
+.session4-banner {
+    position: relative;
+    width: 70%;           /* 画像幅の50% */
+    margin: 0 auto;       /* 中央寄せ */
+  }
+  .session4-banner img {
+    display: block;
+    width: 100%;          /* ラッパー幅いっぱい */
+    border-radius: 12px;  /* 角丸 */
+  }
+  .session4-banner .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 20px;      /* 左右に20pxの余白 */
+    right: 20px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .session4-banner .banner-text p {
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+  }
+  /* 活用例二段組 */
+  .aidx-usecases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+    margin-top: 40px;
+  }
+  .aidx-usecase {
+    background: transparent;
+    padding: 0 80px;
+  }
+  /* 活用例間を縦線で区切る */
+  .aidx-usecases .aidx-usecase + .aidx-usecase {
+    border-left: 1px solid #ddd;
+    padding-left: 24px;
+  }
+  .aidx-usecase h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    
+  }
+  .aidx-usecase p,
+  .aidx-usecase ul {
+    font-size: 14px;
+    color: #333;
+    
+  }
+  
+  /* モバイル対応 */
+  @media (max-width: 768px) {
+    .aidx-content,
+    .aidx-usecases {
+      grid-template-columns: 1fr;
+    }
+    .aidx-content .aidx-section + .aidx-section,
+    .aidx-usecases .aidx-usecase + .aidx-usecase {
+      border: none;
+      padding-left: 0;
+    }
+  }
+  
+  /* フッターのロゴサイズ調整（他ページと同一） */
+  .site-footer .footer-inner img {
+    width: 150px;
+    height: auto;
+  }
+  
+  /* ヒーロー下の説明文 */
+  .aidx-hero .hero-text .description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #909090;
+    margin-top: 16px;
+    line-height: 1.6;
+    text-align: left;
+  }
+  .banner-wrapper {
+    position: relative;
+    width: 50%;             /* 画像幅に合わせる */
+  }
+  .banner-wrapper img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+  }
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0 10px;        /* テキストの周りに余白 */
+  }
+
+  /* スマホ用追加 */
+@media (max-width: 768px) {
+    /* ヒーローセクションを縦積み＆余白調整 */
+    .aidx-hero {
+      padding: 50px 0 0; /* 上部余白をやや狭く */
+    }
+    .aidx-hero .hero-container {
+      flex-direction: column;
+      align-items: center;
+      min-height: auto;
+    }
+    .aidx-hero .hero-image {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      margin-bottom: 16px;
+    }
+    .aidx-hero .hero-image img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .aidx-hero .hero-text {
+      padding: 0 12px;
+      text-align: center;
+    }
+    .aidx-hero .title {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .aidx-hero .subtitle {
+      font-size: 16px;
+    }
+  
+    /* Session4バナー */
+    .session4-banner {
+      width: 90%;
+    }
+    .session4-banner img {
+      border-radius: 8px;
+    }
+    .session4-banner .banner-text {
+      left: 8px;
+      right: 8px;
+      font-size: 14px;
+      padding: 0 8px;
+    }
+  
+    /* バナーラッパー（もし使っていれば） */
+    .banner-wrapper {
+      width: 100%;
+    }
+    .banner-wrapper img {
+      width: 100%;
+    }
+    .banner-text {
+      left: 8px;
+      right: 8px;
+      font-size: 14px;
+      padding: 0 8px;
+    }
+  
+    /* 活用例二段組 → 単列表示 */
+    .aidx-usecases {
+      grid-template-columns: 1fr;
+    }
+    .aidx-usecases .aidx-usecase {
+      padding: 0 16px;
+    }
+  
+    /* 各セクションの余白を整える */
+    .aidx-content,
+    .aidx-section {
+      padding: 16px 12px;
+    }
+  
+    /* フォントサイズ微調整 */
+    .aidx-section h3 {
+      font-size: 18px;
+    }
+    .aidx-section p,
+    .aidx-section ul {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    /* ──────────────────────────────
+   セッション1〜3の左右マージン20px
+────────────────────────────── */
+.aidx-section.session1,
+.aidx-section.session2,
+.aidx-section.session3 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ──────────────────────────────
+   活用例（aidx-usecases〜usecase）左右マージン20px
+────────────────────────────── */
+.aidx-usecases {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.aidx-usecase {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ──────────────────────────────
+   トップ画像を上下トリミングで
+   中央200pxを表示
+────────────────────────────── */
+.aidx-hero .hero-image {
+  height: 200px;
+  overflow: hidden;
+}
+.aidx-hero .hero-image img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+}
+/* ──────────────────────────────
+   全テキスト要素に左右20pxマージン
+────────────────────────────── */
+.aidx-section h3,
+.aidx-section p,
+.aidx-section ul,
+.session4-banner .banner-text,
+.banner-text {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+  }
+  
