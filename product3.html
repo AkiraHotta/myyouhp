@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Product ｜ MY YOU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/product3.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* フェードイン */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .fade-in.in-view { opacity: 1; transform: translateY(0); }
+
+
+
+    /* Section1/Section2 */
+    .services {
+      display: flex;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+      gap: 40px;
+      font-family: 'Inter', sans-serif;
+    }
+    .services .col {
+      padding-top: 30px;
+      flex: 1;
+    }
+    .services .col h2 {
+      font-size: 20px; font-weight: 500; margin-bottom: 16px;
+    }
+    .services .col h2 span {
+      font-weight: 600;
+    }
+    .services .col p,
+    .services .col ul {
+      font-size: 16px; line-height: 1.8; color: #555;
+    }
+    .services .col ul {
+      list-style: none; padding-left: 0;
+    }
+    .services .col ul li {
+      position: relative; padding-left: 24px; margin-bottom: 12px; color: #555;
+    }
+    .services .col ul li::before {
+      content: '✔'; position: absolute; left: 0; color: #7A171C; font-weight: bold;
+    }
+  </style>
+
+  <script>
+    // ハンバーガー＆フェードイン＆モーダル
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.hamburger')?.addEventListener('click', () => {
+        document.querySelector('.nav-menu')?.classList.toggle('open');
+      });
+      const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: .1, rootMargin: '0px 0px -50px 0px' });
+      document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    });
+
+    function openModal(src) {
+      const m = document.getElementById('videoModal');
+      const v = document.getElementById('modalVideo');
+      v.src = src; m.style.display = 'flex'; v.play();
+    }
+    function closeModal() {
+      const m = document.getElementById('videoModal');
+      const v = document.getElementById('modalVideo');
+      v.pause(); v.currentTime = 0; v.src = '';
+      m.style.display = 'none';
+    }
+    function handleBackgroundClick(e) {
+      if (e.target.id === 'videoModal') closeModal();
+    }
+  </script>
+</head>
+
+<body>
+  <!-- ヘッダー -->
+  <header class="site-header fade-in">
+    <div class="header-inner">
+      <div class="logo"><a href="index.html"><img src="images/logo1.png" alt="MY YOU ロゴ"></a></div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="has-submenu">
+            <a href="#">Product</a>
+            <ul class="submenu">
+              <li><a href="product.html">空間映像ソリューション</a></li>
+              <li><a href="product2.html">WEB / iOS App</a></li>
+              <li><a href="product3.html">システム開発</a></li>
+              <li><a href="product4.html">AI DX支援</a></li>
+            </ul>
+          </li>
+          <li><a href="#footer">About Us</a></li>
+          <li><a href="#footer">Support/Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- 本文コンテンツをラップ -->
+  <main class="main-content">
+  <!-- 0. ヒーロー -->
+  <section class="hero fade-in">
+    <div class="hero-image">
+      <img src="images/IMG_50.png" alt="システム開発イメージ">
+    </div>
+    <div class="hero-text">
+      <h1>システム開発</h1>
+      <br>
+      <p>現場のニーズに即した、柔軟かつ実用的なシステム設計を提供します。</p>
+      <p>映像コントロール、物体感知、各種センサーの連動など、目的や運用環境に合わせて、ハードウェアからソフトウェアまでトータルに設計・開発いたします。 <br>
+        <br>
+        既存ハードを活かしながら、UIや制御ロジックを独自に構築することで、コストを抑えながらも高い機能性と拡張性を実現。<br>
+        <br>
+        汎用製品では対応しきれない現場課題に対して、効率的かつ最適なソリューションをご提案します。</p>
+    </div>
+  </section>
+
+  <!-- 1. Section1 & Section2 -->
+  <section class="services fade-in">
+    <div class="col">
+      <h2>Section1. <span>サービス概要</span></h2>
+      <p>課題に合わせて、最適な技術構成を。
+        映像コントロール、物体感知、各種センサーの連動など、使用目的・導入環境に応じたシステム開発を行います。<br>
+         ハードとソフトを一体で捉え、現場に最適化された設計をご提案。</p>
+    </div>
+
+    <!-- 追加：縦線 -->
+    <div class="divider"></div>
+
+    <div class="col">
+      <h2>Section2. <span>特長・強み</span></h2>
+      <ul>
+        <p>既存ハードウェアの活用</p>
+        <li>既存ハードウェアの活用<br>
+          汎用品や手持ちの機器を活かして開発可</li>
+        <li>UI/ソフトウェアの独自開発<br>
+          使いやすく現場に馴染むインターフェースを実装</li>
+        <li>短納期・小規模対応OK<br>
+          PoCや局所導入にも柔軟に対応</li>
+        
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2. 立体映像 × LEDコントロール -->
+  <section class="case-study fade-in">
+    <div class="case-content">
+      <div class="case-text">
+        <h2>立体映像 × <span class="led">LEDコントロール</span></h2>
+        <p>店舗壁面のLEDディスプレイに、恐竜が飛び出すように見えるアナモルフィック映像を展開。<br>
+        映像の見え方や視覚的な効果にこだわりながら、再生制御まで含めたシステム全体を開発しました。<br>
+        私たちは、必要以上に高額な映像制作に頼るのではなく、既存のアセットや技術を工夫して活用することで、
+        無理なく、そして継続的に映像を発信し続けられる仕組みを大切にしています。<br>
+        “高い映像”ではなく、伝えたいことがしっかり届く映像を丁寧につくる——それが私たちの考え方です。</p>
+      </div>
+      <div class="case-image">
+        <img src="images/IMG_22.png" alt="立体映像：空間演出">
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 4. プロジェクション体験 -->
+  <section class="projection-section fade-in">
+    <div class="projection-images">
+      <img src="images/IMG_29.png" alt="縦長画像">
+      <img src="images/IMG_27.png" alt="正方形画像1">
+      <img src="images/IMG_26.png" alt="正方形画像2">
+    </div>
+    <div class="projection-text">
+      <h2>AIカメラ×プロジェクション×体験型演出</h2>
+      <p>
+        人物の動きをAIカメラでリアルタイムに検知し、光や映像を動的にコントロール。<br>
+         空間全体と連動した演出により、体験そのものがインタラクティブなコンテンツとして展開されています。<br>
+         私たちは、既存のカメラ機器でも十分に実現できるAI制御の可能性に注目し、 コストを抑えながらも、没入感のある映像体験を届けることを大切にしています。<br>
+          特別な機材に頼らず、技術と工夫で本質的な価値をつくる——そんなスタイルで開発を行っています。
+      </p>
+    </div>
+  </section>
+  <!-- 5. ガチャガチャPOSセンサー連携 -->
+  <section class="sensor-section">
+    <div class="sensor-text">
+      <h2><span class="strong">ガチャガチャ</span>POSセンサー × AI × 基幹システム連携</span></h2>
+        </h2>
+        <p>従来は、カプセルを補充するたびに人が数えて商品を登録する手作業が必要でした。<br>
+        私たちはその仕組みを見直し、センサーと連動して自動で販売情報を記録・集計するPOSシステムを開発。<br>
+        数える必要のない、まったく新しいガチャ運営が実現しました。<br>
+        さらに、AIが売れ行きや在庫状況に応じて最適な商品を提案。<br>
+        「何を入れればいいか」がすぐにわかるため、経験のないスタッフでもすぐに補充業務が行えるようになっています。<br>
+        バックヤードの在庫も、アプリでどこにあるか一瞬で検索可能。<br>
+        人の勘や記憶に頼らず、だれでもスムーズに動ける、新しい運営のかたちをサポートしています。</p>
+      </div>
+      <div class="sensor-image">
+        <img src="images/IMG_51.png" alt="POSセンサー連携の画像">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <!-- フッター -->
+  <footer id="footer" class="site-footer fade-in">
+    <div class="footer-inner">
+      <img src="images/logo1.png" alt="MY YOU ロゴ" class="footer-logo">
+      <p class="main">人とつながる場所に、新しい価値が生まれる。</p>
+    </div>
+  </footer>
+</body>
+</html>
