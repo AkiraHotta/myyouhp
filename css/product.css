@@ -262,27 +262,38 @@
   .modal {
     display: none;
     position: fixed;
-    z-index: 9999;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(220, 220, 220, 0.6);  /* アルファ値0.6で半透明 */
     justify-content: center;
     align-items: center;
   }
   
-  .modal-content {
-    position: relative;
-    width: 50%;
-    max-width: 400px;
-    background: #000;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  .modal.open {
+    display: flex;
   }
   
-  .modal-content video {
-    width: 100%;
-    height: auto;
-  }
+/* モーダルコンテンツは画面いっぱい */
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 動画を縦50vhまでに制限 */
+  
+ /* 動画を縦50vhまでに制限 */
+.modal-content video {
+  max-height: 50vh;     /* 画面高さの50%まで */
+  max-width: 90vw;      /* 幅は従来どおり90%以内 */
+  width: auto;
+  object-fit: contain;
+}
   
   .close-btn {
     position: absolute;
@@ -291,7 +302,7 @@
     font-size: 24px;
     color: #fff;
     cursor: pointer;
-    z-index: 10;
+    z-index: 10000;
   }
 
 
