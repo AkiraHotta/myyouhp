@@ -662,3 +662,11 @@
     }
     
   }
+  .site-footer a {
+  color: #fff; /* または #ccc など背景とのコントラストに応じて */
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: #ff9f0a; /* ホバー時に強調 */
+  text-decoration: underline;
+}
